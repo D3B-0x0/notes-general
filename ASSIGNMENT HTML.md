@@ -75,7 +75,7 @@
 ```
 
 
-![](Pasted image 20250509161317.png)
+![](https://github.com/D3B-0x0/notes-general/blob/6cbcd60e13a1eb80b6407f56013da31a0c924ead/Pasted%20image%2020250509161317.png)
 
 
 2.  Create a static web page which defines all text formatting tags of HTML in tabular format.
@@ -226,7 +226,7 @@
 
 ```
 
- ![](Pasted image 20250509161429.png)
+ ![](https://github.com/D3B-0x0/notes-general/blob/6cbcd60e13a1eb80b6407f56013da31a0c924ead/Pasted%20image%2020250509161429.png)
 
 3. Create a webpage using list tags of HTML.
 
@@ -269,7 +269,7 @@
 
 ```
 
-![](Pasted image 20250509161619.png)
+![](https://github.com/D3B-0x0/notes-general/blob/6cbcd60e13a1eb80b6407f56013da31a0c924ead/Pasted%20image%2020250509161619.png)
 
 4. Create webpage to include image using HTML tag.
 
@@ -287,7 +287,7 @@
 
 ```
 
-![](Pasted image 20250509161946.png)
+![](https://github.com/D3B-0x0/notes-general/blob/6cbcd60e13a1eb80b6407f56013da31a0c924ead/Pasted%20image%2020250509161946.png)
 
 5. Create employee registration webpage using HTML form objects.
 
@@ -334,7 +334,7 @@
 
 ```
 
-![](Pasted image 20250509162530.png)
+![](https://github.com/D3B-0x0/notes-general/blob/6cbcd60e13a1eb80b6407f56013da31a0c924ead/Pasted%20image%2020250509162530.png)
 
 6. Create an HTML file (e.g. first_page.html) that specifies a page that contains a heading and two paragraphs of text. 
 ```html 
@@ -363,7 +363,7 @@
 
 ```
 
-![](Pasted image 20250509163057.png)
+![](https://github.com/D3B-0x0/notes-general/blob/6cbcd60e13a1eb80b6407f56013da31a0c924ead/Pasted%20image%2020250509163057.png)
 
 7. Create another .html file that contains a heading and a couple of paragraphs. You could name this new file another_page.html, and you should place it into the same folder where your first .html is. After you have created the new .html page, add a link to the first page so that the browser will load another_page.html when you click the text Go to the other page. in the first page. 
 
@@ -421,9 +421,9 @@
 ```
 
 
-![](Pasted image 20250509164059.png)
+![](https://github.com/D3B-0x0/notes-general/blob/6cbcd60e13a1eb80b6407f56013da31a0c924ead/Pasted%20image%2020250509164059.png)
 
-![](Pasted image 20250509164125.png)
+![](https://github.com/D3B-0x0/notes-general/blob/6cbcd60e13a1eb80b6407f56013da31a0c924ead/Pasted%20image%2020250509164125.png)
 
 8.  Modify the link that you created in the previous exercise so that a tool tip says "This leads you to another page." when the mouse cursor is over the link.
 
@@ -505,6 +505,8 @@
 ```
 
 ![](Screenshot_2025-05-09_16.51.35.png)
+
+
 10. Upload your two .html files to a server and test that they work as real internet pages. 
 #### _The above outputs are all from an locally running server at loopback 127.0.0.1_
 
