@@ -41,6 +41,8 @@ int main() {
     return 0;
 }
 ```
+![image](https://github.com/user-attachments/assets/3c8b6e78-9d6b-41c2-b803-dc774ea91f18)
+
 
 2. Insertion sort
 
@@ -83,8 +85,10 @@ int main() {
     
     return 0;
 }
-
 ```
+![image](https://github.com/user-attachments/assets/46a0b9cc-6b00-489d-9059-5ec64668a5d3)
+
+
 3. Merge sort
 
 ```c
@@ -157,8 +161,10 @@ int main() {
     
     return 0;
 }
-
 ```
+![image](https://github.com/user-attachments/assets/b2b4c0da-5bfe-4051-a0a4-220683fd82fe)
+
+
 4. Quicksort
 ```c
 #include <stdio.h>
@@ -215,6 +221,9 @@ int main() {
     return 0;
 }
 ```
+![image](https://github.com/user-attachments/assets/49e75158-9c01-4ca4-bf56-c5d570d44b7d)
+
+
 5. Selection sort
 
 ```c
@@ -259,6 +268,9 @@ int main() {
     return 0;
 }
 ```
+![image](https://github.com/user-attachments/assets/ff1565fe-8649-4b66-8876-53f1ceeb249f)
+
+
 # Stack and queues
 
 1. Circular queue 
@@ -345,6 +357,9 @@ int main() {
     }
 }
 ```
+![image](https://github.com/user-attachments/assets/a4d467a3-7c02-4e5a-a0fa-5d3ce8947924)
+
+
 2. Queue using array
 
 ```c
@@ -411,8 +426,10 @@ int main() {
     }
     return 0;
 }
-
 ```
+![image](https://github.com/user-attachments/assets/5d33db3e-ba07-4ac0-a0ae-5496d2ed8cb2)
+
+
 3. Stack using array
 
 ```c
@@ -479,6 +496,9 @@ int main() {
     return 0;
 }
 ```
+![image](https://github.com/user-attachments/assets/51ce9c24-e4ab-4a76-85e6-9f1ac1554e73)
+
+
 4. Stack using linklist.
 
 ```c
@@ -564,6 +584,9 @@ int main() {
     return 0;
 }
 ```
+![image](https://github.com/user-attachments/assets/6577c9e6-4033-490d-be57-c04155a55dde)
+
+
 5. Queue using linklist.
 
 ```c
@@ -656,6 +679,9 @@ int main() {
     return 0;
 }
 ```
+![image](https://github.com/user-attachments/assets/34ce5b05-6b7b-4749-8a2f-2495f99d565c)
+
+
 # Searching
 
 1. Linear search
@@ -718,6 +744,9 @@ int main() {
     return 0;
 }
 ```
+![image](https://github.com/user-attachments/assets/b4bd5586-7429-40c3-914d-3c70839e26c2)
+
+
 2. Binary Search.
 
 ```c
@@ -785,6 +814,8 @@ int main() {
     return 0;
 }
 ```
+![image](https://github.com/user-attachments/assets/d3bfd6f5-5567-4af0-854d-41eed8b7215c)
+
 
 # Linkedlist
 
@@ -896,6 +927,9 @@ int main() {
     return 0;
 }
 ```
+![image](https://github.com/user-attachments/assets/70fef3d3-eb0f-4f65-b9de-53ffbd920428)
+
+
 2. Doubly linkedlist.
 
 ```c
@@ -992,6 +1026,9 @@ int main() {
     return 0;
 }
 ```
+![image](https://github.com/user-attachments/assets/43d4fdb4-17bb-4395-9054-43e5e518265c)
+
+
 3. Singly linkedlist.
 
 ```c
@@ -1085,6 +1122,9 @@ int main() {
     return 0;
 }
 ```
+![image](https://github.com/user-attachments/assets/ecf2768c-59dc-45f3-809c-7616bef882b1)
+
+
 4. Polynomial addition using a singly linked list.
 ```c
 #include <stdio.h>
@@ -1220,6 +1260,9 @@ int main() {
     return 0;
 }
 ```
+![image](https://github.com/user-attachments/assets/e79c98a9-a9a5-483a-a4bc-499e00924e47)
+
+
 # Tree
 
 1. Binary search tree.
@@ -1229,135 +1272,65 @@ int main() {
 #include <stdlib.h>
 
 struct Node {
-    int coeff;
-    int exp;
-    struct Node* next;
+    int data;
+    struct Node *left, *right;
 };
 
-struct Node *poly1 = NULL, *poly2 = NULL, *result = NULL;
-
-void insert(struct Node** poly, int coeff, int exp) {
-    struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
-    if (!newNode) {
-        printf("Memory allocation failed\n");
-        return;
+struct Node* insert(struct Node* root, int x) {
+    if (!root) {
+        root = malloc(sizeof(struct Node));
+        root->data = x;
+        root->left = root->right = NULL;
     }
-    newNode->coeff = coeff;
-    newNode->exp = exp;
-    newNode->next = *poly;
-    *poly = newNode;
+    else if (x < root->data) root->left = insert(root->left, x);
+    else if (x > root->data) root->right = insert(root->right, x);
+    return root;
 }
 
-void input_poly(struct Node** poly) {
-    int n, coeff, exp;
-    printf("Enter number of terms: ");
-    scanf("%d", &n);
-    for (int i = 0; i < n; i++) {
-        printf("Enter coefficient and exponent: ");
-        scanf("%d %d", &coeff, &exp);
-        insert(poly, coeff, exp);
-    }
+struct Node* search(struct Node* root, int x) {
+    if (!root || root->data == x) return root;
+    return (x < root->data) ? search(root->left, x) : search(root->right, x);
 }
 
-void add_polynomials() {
-    struct Node *p1 = poly1, *p2 = poly2;
-    result = NULL;
-    while (p1 && p2) {
-        struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
-        if (!newNode) {
-            printf("Memory allocation failed\n");
-            return;
-        }
-        if (p1->exp > p2->exp) {
-            newNode->coeff = p1->coeff;
-            newNode->exp = p1->exp;
-            p1 = p1->next;
-        } else if (p1->exp < p2->exp) {
-            newNode->coeff = p2->coeff;
-            newNode->exp = p2->exp;
-            p2 = p2->next;
-        } else {
-            newNode->coeff = p1->coeff + p2->coeff;
-            newNode->exp = p1->exp;
-            p1 = p1->next;
-            p2 = p2->next;
-        }
-        if (newNode->coeff != 0) {
-            newNode->next = result;
-            result = newNode;
-        } else {
-            free(newNode);
-        }
+void inorder(struct Node* root) {
+    if (root) {
+        inorder(root->left);
+        printf("%d ", root->data);
+        inorder(root->right);
     }
-    while (p1) {
-        insert(&result, p1->coeff, p1->exp);
-        p1 = p1->next;
-    }
-    while (p2) {
-        insert(&result, p2->coeff, p2->exp);
-        p2 = p2->next;
-    }
-}
-
-void display(struct Node* poly) {
-    if (!poly) {
-        printf("Polynomial is empty\n");
-        return;
-    }
-    printf("Polynomial: ");
-    struct Node* current = poly;
-    while (current) {
-        printf("%dx^%d", current->coeff, current->exp);
-        current = current->next;
-        if (current) printf(" + ");
-    }
-    printf("\n");
 }
 
 int main() {
-    int choice;
+    struct Node* root = NULL;
+    int choice, x;
+    
     while (1) {
-        printf("\n1. Input Polynomial 1\n2. Input Polynomial 2\n3. Add Polynomials\n4. Display Result\n5. Exit\n");
-        printf("Enter choice: ");
+        printf("\n1.Insert 2.Search 3.Display 4.Exit\nChoice: ");
         scanf("%d", &choice);
-        switch (choice) {
-            case 1:
-                input_poly(&poly1);
-                break;
-            case 2:
-                input_poly(&poly2);
-                break;
-            case 3:
-                add_polynomials();
-                printf("Polynomials added\n");
-                break;
-            case 4:
-                display(result);
-                break;
-            case 5:
-                while (poly1) {
-                    struct Node* temp = poly1;
-                    poly1 = poly1->next;
-                    free(temp);
-                }
-                while (poly2) {
-                    struct Node* temp = poly2;
-                    poly2 = poly2->next; 
-                    free(temp);
-                }
-                while (result) {
-                    struct Node* temp = result;
-                    result = result->next;
-                    free(temp);
-                }
-                exit(0);
-            default:
-                printf("Invalid choice\n");
+        
+        if (choice == 1) {
+            printf("Value: ");
+            scanf("%d", &x);
+            root = insert(root, x);
         }
+        else if (choice == 2) {
+            printf("Search: ");
+            scanf("%d", &x);
+            printf(search(root, x) ? "Found\n" : "Not found\n");
+        }
+        else if (choice == 3) {
+            printf("Tree: ");
+            inorder(root);
+            printf("\n");
+        }
+        else break;
     }
     return 0;
 }
 ```
+![image](https://github.com/user-attachments/assets/49bd1092-7d71-47db-b588-d75f8b068982)
+
+
 #ENDDDDDDDDDD
 ---
 
